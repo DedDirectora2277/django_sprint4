@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
-from django.db.models import Count, Q
+from django.db.models import Count
 from django.views.decorators.http import require_POST
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
