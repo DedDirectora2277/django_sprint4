@@ -170,7 +170,6 @@ class PostDeleteView(
     DeleteView
 ):
     model = Post
-    template_name = 'blog/post_confirm_delete.html'
     pk_url_kwarg = 'post_id'
 
     def test_func(self):
@@ -184,6 +183,14 @@ class PostDeleteView(
         ):
             return redirect(f'/posts/{self.kwargs["post_id"]}/')
         return super().handle_no_permission()
+
+    def get(self, request, *args, **kwargs):
+        return self.post(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.delete()
+        return redirect(self.get_success_url())
 
     def get_success_url(self):
         return reverse_lazy("blog:profile", kwargs={

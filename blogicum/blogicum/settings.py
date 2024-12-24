@@ -55,15 +55,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-INTERNAL_IPS = [
-    '127.0.0.1',
-    'localhost',
-]
-
-DEBUG_TOOLBAR_CONFIG = {
-    'SHOW_TOOLBAR_CALLBACK': lambda request: True,  # Включить для всех запросов (можно сделать условно)
-}
-
 ROOT_URLCONF = 'blogicum.urls'
 
 TEMPLATES_DIR = BASE_DIR / 'templates'
